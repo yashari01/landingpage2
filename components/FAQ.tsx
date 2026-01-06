@@ -1,9 +1,16 @@
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
-
+import { useParallax } from 'react-scroll-parallax';
 
 export default function FAQ({...rest}) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const titleParallax = useParallax<HTMLDivElement>({
+    translateY: [-30, 0],
+    opacity: [0.5, 1],
+    speed: 0.2,
+    easing: 'easeOutQuad'
+  });
 
   const faqs = [
     {
@@ -37,11 +44,11 @@ export default function FAQ({...rest}) {
   ];
 
   return (
-    <section  {...rest} className="relative py-16 bg-[#0d0d0f] h-full">
+    <section  {...rest} className="relative py-20 bg-[#0d0d0f] h-full">
       {/* <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d0f] to-[#1a0a0f]"></div> */}
-      
+
       <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div ref={titleParallax.ref} className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl mb-6 text-[#FA1E4E] font-bold">
             Frequently asked<br />questions
           </h2>

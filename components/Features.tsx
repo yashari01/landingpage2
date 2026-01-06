@@ -35,7 +35,7 @@ export const Features: React.FC = () => {
   
   // });
   return (
-    <section className="pt-6 bg-[#050505] py-6 bg-[#0a0a0a] relative overflow-hidden md:h-screen border-b border-gray-800">
+    <section className="py-20 bg-[#0a0a0a] relative overflow-hidden border-b border-gray-800">
       <style>
         {`
         

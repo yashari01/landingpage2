@@ -20,7 +20,7 @@ export const NarrativeHook: React.FC = () => {
     speed: 0.5
   });
   return (
-    <section className="py-20 bg-[#050505] border-b border-gray-800 relative md:h-screen w-full overflow-hidden">
+    <section className="py-20 bg-[#050505] border-b border-gray-800 relative min-h-screen w-full overflow-hidden">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
         <div>
           <img ref={parallax.ref} src={image} alt="Gamer Frustrated with Chrome" className="md:h-[90vh] h-auto" />

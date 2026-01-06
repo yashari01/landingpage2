@@ -54,7 +54,7 @@ export const Benchmark: React.FC = () => {
   }));
 
   return (
-    <section className="pt-6 bg-[#0a0a0a] relative overflow-hidden h-screen">
+    <section className="py-20 bg-[#0a0a0a] relative overflow-hidden min-h-screen">
       <style>
         {`
         .switch-button {
