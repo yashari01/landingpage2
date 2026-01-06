@@ -2,20 +2,33 @@ import React from 'react';
 import { Button } from './Button';
 import { Download, Rocket } from 'lucide-react';
 import bgImage from '../assets/hero_footer.png';
+import { useParallax } from 'react-scroll-parallax';
+
 export const FinalCTA: React.FC = () => {
+  const backgroundParallax = useParallax<HTMLDivElement>({
+    translateY: [20, -20],
+    speed: 0.2,
+    easing: 'easeOutQuad'
+  });
+
+  const contentParallax = useParallax<HTMLDivElement>({
+    scale: [0.95, 1],
+    speed: 0.3,
+    easing: 'easeOutQuad'
+  });
   return (
     <section className="relative py-24 overflow-hidden bg-[#050505] flex items-center">
       {/* Background Image 1.png */}
-      <div className="absolute inset-0 z-0">
-        <img 
+      <div ref={backgroundParallax.ref} className="absolute inset-0 z-0">
+        <img
           src={bgImage}
-          alt="Gamer Background" 
+          alt="Gamer Background"
           className="w-full h-full object-contain opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 text-center">
+      <div ref={contentParallax.ref} className="container mx-auto px-4 relative z-10 text-center">
         <div className="inline-block p-3 rounded-full bg-[#fa1e4e]/20 border border-[#fa1e4e] mb-6 animate-bounce">
           <Rocket className="w-6 h-6 text-[#fa1e4e]" />
         </div>

@@ -2,7 +2,14 @@ import React from "react";
 import { Button } from "./Button";
 import { Download } from "lucide-react";
 import bImage from "../assets/photo-1542751371-adc38448a05e.avif";
+import { useParallax } from 'react-scroll-parallax';
+
 export const Hero: React.FC = () => {
+  const videoParallax = useParallax<HTMLDivElement>({
+    scale: [1.2, 1],
+    speed: 0.3,
+    easing: 'easeOutQuad'
+  });
   return (
     <>
       <style>
@@ -199,7 +206,7 @@ export const Hero: React.FC = () => {
           </svg>
         </div>
         {/* Video Background */}
-        <div className="absolute inset-0 w-full h-full z-0">
+        <div ref={videoParallax.ref} className="absolute inset-0 w-full h-full z-0">
           <div className="absolute inset-0 bg-black/80 z-10" /> {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-10" />
           <video
@@ -210,7 +217,7 @@ export const Hero: React.FC = () => {
             className="w-full h-full object-cover"
             poster={bImage}
           >
-            {/* Note: In a real environment, this would point to the local video file. 
+            {/* Note: In a real environment, this would point to the local video file.
               Using a placeholder video for demonstration if local fails, but trying local first. */}
             <source src="../assets/backgroundvideo.mp4" type="video/mp4" />
           </video>

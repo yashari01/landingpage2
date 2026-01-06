@@ -6,7 +6,7 @@ import { Features } from "./components/Features";
 import { Testimonial } from "./components/Testimonial";
 import { FinalCTA } from "./components/FinalCTA";
 import { Navbar } from "./components/Navbar";
-import FAQ from "./components/Faq";
+import FAQ from "./components/FAQ";
 import DownloadButton from "./components/DownloadButton";
 import { ParallaxProvider } from "react-scroll-parallax";
 

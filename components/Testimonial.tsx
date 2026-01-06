@@ -1,7 +1,26 @@
 import React from 'react';
 import { Star, Download,Quote  } from 'lucide-react';
+import { useParallax } from 'react-scroll-parallax';
 
 export const Testimonial: React.FC = () => {
+  const leftParallax = useParallax<HTMLDivElement>({
+    translateX: [-100, 0],
+    speed: 0.4,
+    easing: 'easeOutQuad'
+  });
+
+  const centerParallax = useParallax<HTMLDivElement>({
+    translateY: [30, 0],
+    opacity: [0, 1],
+    speed: 0.3,
+    easing: 'easeOutQuad'
+  });
+
+  const rightParallax = useParallax<HTMLDivElement>({
+    translateX: [100, 0],
+    speed: 0.4,
+    easing: 'easeOutQuad'
+  });
   const testimonials = [
      {
       quote: "Opera GX already has a long-standing relationship with MoistCr1TiKaL, Together I know we can smash it",
@@ -46,7 +65,7 @@ export const Testimonial: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-2 bg-[#0d0d0f] md:h-screen h-auto">
+    <section className="relative py-20 bg-[#0d0d0f] h-auto">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
           <h2 className="text-5xl md:text-6xl mb-6 text-[#FA1E4E] font-bold">
@@ -67,6 +86,7 @@ export const Testimonial: React.FC = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
+              ref={index === 0 ? leftParallax.ref : index === 1 ? centerParallax.ref : rightParallax.ref}
               className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 border border-gray-800 hover:border-[#ff375f]/50 transition-all duration-300"
             >
               <div className="flex items-center gap-1 mb-6">
